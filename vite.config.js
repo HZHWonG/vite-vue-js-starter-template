@@ -4,6 +4,8 @@ import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { TDesignResolver } from 'unplugin-vue-components/resolvers';
+import sass from 'sass';
+import babel from 'vite-plugin-babel';
 
 export default ({ mode }) => {
   const { VITE_PORT, VITE_BASE_URL } = loadEnv(mode, process.cwd());
@@ -12,6 +14,9 @@ export default ({ mode }) => {
     base: VITE_BASE_URL,
     plugins: [
       vue(),
+      babel({
+        presets: ['@babel/preset-env'],
+      }),
       AutoImport({
         resolvers: [
           TDesignResolver({
@@ -34,12 +39,11 @@ export default ({ mode }) => {
     },
     css: {
       preprocessorOptions: {
-        less: {
-          modifyVars: {
-            hack: `true; @import (reference) "${resolve('src/style/variables.less')}";`,
+        scss: {
+          implementation: sass,
+          sassOptions: {
+            includePaths: [resolve(__dirname, './src/style')],
           },
-          math: 'strict',
-          javascriptEnabled: true,
         },
       },
     },

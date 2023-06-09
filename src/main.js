@@ -5,7 +5,7 @@ import router from './router';
 import store from './store';
 
 import '@/assets/main.css';
-import '@/style/index.less';
+import '@/style/index.scss';
 
 // 引入组件库全局样式资源
 import 'tdesign-vue-next/es/style/index.css';

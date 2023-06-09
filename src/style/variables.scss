@@ -1,0 +1,38 @@
+$nav-color: #F90;
+nav {
+  $width: 100px;
+  width: $width;
+  color: $nav-color;
+}
+
+$highlight-color: #F90;
+.selected {
+  border: 1px solid $highlight-color;
+}
+
+
+$highlight-color: #F90;
+$highlight-border: 1px solid $highlight-color;
+.selected {
+  border: $highlight-border;
+}
+
+$link-color: blue;
+a {
+  color: $link_color;
+}
+
+
+#content {
+  article {
+    h1 { color: #333 }
+    p { margin-bottom: 1.4em }
+  }
+  aside { background-color: #EEE }
+}
+
+
+article a {
+  color: blue;
+  &:hover { color: red }
+}
